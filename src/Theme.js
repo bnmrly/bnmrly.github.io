@@ -2,7 +2,8 @@ const Theme = {
   color: {
     siteBackground: '#d9d9d9',
     primaryFont: '#333',
-    hover: '#b00090'
+    link: '#b00090',
+    linkHover: '#C57EBC'
   },
   dimensions: {
     iconHeight: '40px',

@@ -24,12 +24,11 @@ const HeaderAboutMeWrapper = styled.div`
     }
 
     a:hover {
-      color: ${props => props.theme.color.hover};
+      color: ${props => props.theme.color.linkHover};
     }
   }
 
   h2 {
-    font-weight: 200;
     font-size: 1em;
     letter-spacing: ${props => props.theme.dimensions.letterSpacingOverride};
   }

@@ -13,21 +13,30 @@ body {
   color: ${props => props.theme.color.primaryFontColor}
 }
 
-a {
-  text-decoration: none;
-}
-
 h1 {
   font-weight: 300;
   text-transform: uppercase;
 }
 
 h2 {
+  font-weight: 200;
   text-transform: uppercase;
 }
 
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: ${props => props.theme.color.link};
+}
 
+a:hover {
+  color: ${props => props.theme.color.linkHover};
+}
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
 `;
 
 export default GlobalStyle;
