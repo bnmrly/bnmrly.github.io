@@ -1,5 +1,9 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components/macro';
+import { ThemeProvider } from 'styled-components';
+import Header from './components/Header';
+import GlobalStyle from './GlobalStyle';
+import Theme from './Theme';
 import { Normalize } from 'styled-normalize';
 
 const AppWrapper = styled.div`
@@ -10,9 +14,12 @@ function App() {
   return (
     <Fragment>
       <Normalize />
-      <AppWrapper>
-        <h1>hello world</h1>
-      </AppWrapper>
+      <ThemeProvider theme={Theme}>
+        <AppWrapper>
+          <Header />
+          <GlobalStyle />
+        </AppWrapper>
+      </ThemeProvider>
     </Fragment>
   );
 }
