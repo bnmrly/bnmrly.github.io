@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components/macro';
 import { ThemeProvider } from 'styled-components';
+import projectData from './data/projectData';
 import GlobalStyle from './GlobalStyle';
 import Theme from './Theme';
 import { Normalize } from 'styled-normalize';
@@ -21,7 +22,7 @@ function App() {
       <ThemeProvider theme={Theme}>
         <AppWrapper>
           <Header />
-          <Main />
+          <Main props={projectData} />
           <GlobalStyle />
         </AppWrapper>
       </ThemeProvider>
