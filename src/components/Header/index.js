@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import gitHubLogo from '../../images/github-logo.png';
-import linkedInLogo from '../../images/linkedin-logo.png';
+import gitHubLogo from '../../images/projects/github-logo.png';
+import linkedInLogo from '../../images/projects/linkedin-logo.png';
 
 // Styled Components
 
