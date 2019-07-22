@@ -10,10 +10,18 @@ import { Normalize } from 'styled-normalize';
 
 import Header from './components/Header';
 import Main from './components/Main';
+import Footer from './components/Footer';
+
+// Styled Components
 
 const AppWrapper = styled.div`
-  margin: 1rem;
+  margin-top: ${props => props.theme.dimensions.appWrapperMarginY};
+  margin-left: ${props => props.theme.dimensions.appWrapperMarginX};
+  margin-bottom: ${props => props.theme.dimensions.appWrapperMarginY};
+  margin-right: ${props => props.theme.dimensions.appWrapperMarginX};
 `;
+
+// Component
 
 function App() {
   return (
@@ -24,6 +32,7 @@ function App() {
           <Header />
           <Main props={projectData} />
           <GlobalStyle />
+          <Footer />
         </AppWrapper>
       </ThemeProvider>
     </Fragment>
