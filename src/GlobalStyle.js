@@ -4,8 +4,11 @@ const GlobalStyle = createGlobalStyle`
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet');
+
 
 body {
+  font-family: 'Work Sans', sans-serif;
   font-family: 'Montserrat', sans-serif;
   color: ${props => props.theme.color.primaryFontColor};
   background-color: ${props => props.theme.color.siteBackground};
