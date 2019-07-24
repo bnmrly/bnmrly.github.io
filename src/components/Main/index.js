@@ -3,8 +3,6 @@ import styled from 'styled-components/macro';
 import { generate as generateId } from 'shortid';
 import InspirationSection from '../Inspiration/';
 
-// import bmPhoto from '../../images/projects/bm-photo-project.png';
-
 // Styled Components
 const MainWrapper = styled.main`
   display: flex;
@@ -41,6 +39,7 @@ const MainProjects = styled.section`
   border-radius: ${props => props.theme.dimensions.borderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
+  width: 100%;
 
   h1 {
     margin-top: 0;
@@ -48,13 +47,23 @@ const MainProjects = styled.section`
 `;
 
 const ProjectsList = styled.ul`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
 `;
 
 const ProjectsListItem = styled.li`
+  border: 1px solid ${props => props.theme.color.border};
+  /* border-radius: ${props => props.theme.dimensions.borderRadius}; */
   width: 45%;
+`;
+
+const ProjectContainer = styled.div`
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 8em;
 `;
 
 // Component
@@ -70,7 +79,8 @@ function Main(props) {
       <MainAbout>
         <h1>About</h1>
         <p>
-          I am a Front End Developer and graduate from the{' '}
+          {/* <img src="./street-support-project.png" alt="" /> */}I am a Front
+          End Developer and graduate from the{' '}
           <a href="https://northcoders.com/">Northcoders</a> full stack coding
           bootcamp.
         </p>
@@ -122,8 +132,19 @@ function Main(props) {
         <ProjectsList>
           {propsArray.map(project => {
             return (
-              <ProjectsListItem key={generateId()}>
-                <div className="project__container">
+              <ProjectsListItem
+                key={generateId()}
+                style={{
+                  backgroundImage: `url(${project.imageUrl})`,
+                  backgroundPosition: `top`,
+                  backgroundSize: `cover`,
+                  height: `25rem`,
+                  position: `relative`,
+                  marginBottom: `4%`,
+                  width: `100%`
+                }}
+              >
+                <ProjectContainer>
                   <p className="project__description">
                     <a
                       className="project__link"
@@ -137,13 +158,12 @@ function Main(props) {
                   <p className="project__description--p">
                     {project.description}
                   </p>
-                </div>
+                </ProjectContainer>
               </ProjectsListItem>
             );
           })}
         </ProjectsList>
       </MainProjects>
-      {/* <img src={bmPhoto} alt="" /> */}
       <InspirationSection />
     </MainWrapper>
   );
