@@ -18,13 +18,21 @@ const InspirationSection = styled.section`
 const InspirationPhotoContainer = styled.div`
   width: 100%;
   height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+`;
+
+const InspirationImageContainer = styled.div`
+  margin: 5px;
 `;
 
 const PhotoBox = ({ url }) => {
   return (
-    <div className="inspiration-image-container">
-      <img className="inspiration-image" src={url} alt="" />
-    </div>
+    <InspirationImageContainer>
+      <img className="inspiration-image" src={url} alt="inspiration" />
+    </InspirationImageContainer>
   );
 };
 
