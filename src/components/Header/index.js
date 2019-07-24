@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import gitHubLogo from '../../images/projects/github-logo.png';
-import linkedInLogo from '../../images/projects/linkedin-logo.png';
+// import gitHubLogo from './github-logo.png';
+// import linkedInLogo from './linkedin-logo.png';
 
 // Styled Components
 
@@ -73,7 +73,7 @@ function AppHeader() {
           >
             <img
               className="header_link__image"
-              src={gitHubLogo}
+              src="./github-logo.png"
               alt="github logo"
             />
           </a>
@@ -87,7 +87,7 @@ function AppHeader() {
           >
             <img
               className="header_link__image"
-              src={linkedInLogo}
+              src="./linkedin-logo.png"
               alt="linkedin logo"
             />
           </a>
