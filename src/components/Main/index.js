@@ -12,7 +12,7 @@ const MainWrapper = styled.main`
 
 const MainAbout = styled.section`
   border: 2px solid ${props => props.theme.color.border};
-  border-radius: ${props => props.theme.dimensions.borderRadius};
+  border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
   width: 40%;
@@ -24,7 +24,7 @@ const MainAbout = styled.section`
 
 const MainSkills = styled.section`
   border: 2px solid ${props => props.theme.color.border};
-  border-radius: ${props => props.theme.dimensions.borderRadius};
+  border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
   width: 40%;
@@ -36,7 +36,7 @@ const MainSkills = styled.section`
 
 const MainProjects = styled.section`
   border: 2px solid ${props => props.theme.color.border};
-  border-radius: ${props => props.theme.dimensions.borderRadius};
+  border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
   width: 100%;
@@ -54,7 +54,7 @@ const ProjectsList = styled.ul`
 
 const ProjectsListItem = styled.li`
   border: 1px solid ${props => props.theme.color.border};
-  /* border-radius: ${props => props.theme.dimensions.borderRadius}; */
+  /* border-radius: ${props => props.theme.dimensions.defaultBorderRadius}; */
   width: 45%;
 `;
 

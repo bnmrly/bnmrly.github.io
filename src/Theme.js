@@ -14,11 +14,13 @@ const Theme = {
     appWrapperMarginY: '2rem',
     appWrapperMarginX: '3rem',
     headerMarginY: '2rem',
-    borderRadius: '0.5rem',
+    defaultBorderRadius: '0.5rem',
     defaultSectionPadding: '2rem',
     defaultSectionMarginY: '5rem',
     lastSectionMarginY: '2rem',
-    copyrightFontSize: '0.75rem'
+    copyrightFontSize: '0.75rem',
+    buttonBorderRadius: '50px',
+    buttonHeight: '2.5rem'
   }
 };
 

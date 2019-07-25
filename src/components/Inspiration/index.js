@@ -6,7 +6,7 @@ import * as api from '../../api';
 
 const InspirationSection = styled.section`
   border: 2px solid ${props => props.theme.color.border};
-  border-radius: ${props => props.theme.dimensions.borderRadius};
+  border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.lastSectionMarginY};
   width: 100%;
@@ -26,6 +26,23 @@ const InspirationPhotoContainer = styled.div`
 
 const InspirationImageContainer = styled.div`
   margin: 5px;
+`;
+
+const ImageButton = styled.button`
+  background-color: transparent;
+  height: ${props => props.theme.dimensions.buttonHeight};
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 1px solid ${props => props.theme.color.border};
+  border-radius: ${props => props.theme.dimensions.buttonBorderRadius};
+
+  :focus {
+    outline: none;
+  }
+
+  :hover {
+    border-color: ${props => props.theme.color.linkHover};
+  }
 `;
 
 const PhotoBox = ({ url }) => {
@@ -72,12 +89,10 @@ function Inspiration() {
         skateboarding, Modernist design, Italian red wine, Golden age hip hop,
         fell walking and my children.
       </p>
-      <p>
-        Please click
-        <button onClick={() => setInspirationShowing(true)}>here</button>
-        to view images of things that inspire me...
-      </p>
-
+      <p>Please click below to view images of things that inspire me...</p>
+      <ImageButton onClick={() => setInspirationShowing(true)}>
+        Show images
+      </ImageButton>
       {inspirationShowing && <InspirationPhotos />}
     </InspirationSection>
   );
