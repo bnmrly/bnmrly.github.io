@@ -20,7 +20,8 @@ const Theme = {
     lastSectionMarginY: '2rem',
     copyrightFontSize: '0.75rem',
     buttonBorderRadius: '50px',
-    buttonHeight: '2.5rem'
+    buttonHeight: '2.5rem',
+    inspirationContainerMargin: '0.25rem'
   }
 };
 

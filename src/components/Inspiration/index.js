@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components/macro';
 import * as api from '../../api';
+import { generate as generateId } from 'shortid';
 
 // Styled Components
 
@@ -15,17 +16,24 @@ const InspirationSection = styled.section`
   }
 `;
 
-const InspirationPhotoContainer = styled.div`
+const InspirationContainer = styled.div`
+  overflow-y: scroll;
+  margin-top: 3rem;
+`;
+
+const InspirationPhotosContainer = styled.div`
   width: 100%;
   height: 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 5px;
+  margin: ${props => props.theme.dimensions.inspirationContainerMargin};
+  margin-left: auto;
+  margin-right: auto;
 `;
 
-const InspirationImageContainer = styled.div`
-  margin: 5px;
+const InspirationPhotoContainer = styled.div`
+  margin: ${props => props.theme.dimensions.inspirationContainerMargin};
 `;
 
 const ImageButton = styled.button`
@@ -35,6 +43,7 @@ const ImageButton = styled.button`
   padding-left: 1rem;
   border: 1px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.buttonBorderRadius};
+  cursor: pointer;
 
   :focus {
     outline: none;
@@ -45,57 +54,76 @@ const ImageButton = styled.button`
   }
 `;
 
-const PhotoBox = ({ url }) => {
-  return (
-    <InspirationImageContainer>
-      <img className="inspiration-image" src={url} alt="inspiration" />
-    </InspirationImageContainer>
-  );
-};
+class Inspiration extends Component {
+  state = {
+    photoUrls: [],
+    buttonClicked: false,
+    buttonText: 'Show Images',
+    inspirationShowing: false
+  };
 
-const InspirationPhotos = () => {
-  const [photoUrls, setPhotoUrls] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await api.getPhotos();
-      console.log(response);
-      setPhotoUrls(response);
-    }
-    fetchData();
-  }, []);
+  componentDidMount = async () => {
+    const response = await api.getPhotos();
+    this.setState({
+      photoUrls: response
+    });
+  };
 
-  return (
-    <div style={{ overflowY: 'scroll' }}>
-      <InspirationPhotoContainer>
-        {photoUrls.length === 0 ? (
-          <div>Loading...</div>
-        ) : (
-          photoUrls.map((url, i) => <PhotoBox url={url} key={i} />)
+  render() {
+    return (
+      <InspirationSection>
+        <h1>Inspiration</h1>
+        <p>
+          Amongst other things, I'm inspired by 70s American Cinema,
+          skateboarding, Modernist design, Italian red wine, Golden age hip hop,
+          fell walking and my children.
+        </p>
+        <p>Please click below to view images of things that inspire me...</p>
+        {!this.state.buttonClicked && (
+          <ImageButton
+            onClick={() =>
+              this.setState({
+                buttonText: 'Hide Images',
+                inspirationShowing: true,
+                buttonClicked: true
+              })
+            }
+          >
+            {this.state.buttonText}
+          </ImageButton>
         )}
-      </InspirationPhotoContainer>
-    </div>
-  );
-};
+        {this.state.buttonClicked && (
+          <ImageButton
+            onClick={() =>
+              this.setState({
+                buttonText: 'Show Images',
+                inspirationShowing: false,
+                buttonClicked: false
+              })
+            }
+          >
+            {this.state.buttonText}
+          </ImageButton>
+        )}
 
-// Component
-
-function Inspiration() {
-  const [inspirationShowing, setInspirationShowing] = useState(false);
-  return (
-    <InspirationSection>
-      <h1>Inspiration</h1>
-      <p>
-        Amongst other things, I'm inspired by 70s American Cinema,
-        skateboarding, Modernist design, Italian red wine, Golden age hip hop,
-        fell walking and my children.
-      </p>
-      <p>Please click below to view images of things that inspire me...</p>
-      <ImageButton onClick={() => setInspirationShowing(true)}>
-        Show images
-      </ImageButton>
-      {inspirationShowing && <InspirationPhotos />}
-    </InspirationSection>
-  );
+        <InspirationContainer>
+          {this.state.inspirationShowing && (
+            <InspirationPhotosContainer>
+              {this.state.photoUrls.map(url => (
+                <InspirationPhotoContainer key={generateId()}>
+                  <img
+                    className="inspiration-image"
+                    src={url}
+                    alt="inspiration"
+                  />
+                </InspirationPhotoContainer>
+              ))}
+            </InspirationPhotosContainer>
+          )}
+        </InspirationContainer>
+      </InspirationSection>
+    );
+  }
 }
 
 export default Inspiration;
