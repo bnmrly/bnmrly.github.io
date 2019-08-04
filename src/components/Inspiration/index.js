@@ -58,16 +58,17 @@ class Inspiration extends Component {
   state = {
     photoUrls: [],
     buttonClicked: false,
-    buttonText: 'Show Images',
-    inspirationShowing: false
+    buttonText: 'Show Images'
   };
 
-  componentDidMount = async () => {
+  async handleShowPhotosClick() {
     const response = await api.getPhotos();
     this.setState({
-      photoUrls: response
+      photoUrls: response,
+      buttonClicked: true,
+      buttonText: 'Hide Images'
     });
-  };
+  }
 
   render() {
     return (
@@ -79,46 +80,41 @@ class Inspiration extends Component {
           fell walking and my children.
         </p>
         <p>Please click below to view images of things that inspire me...</p>
-        {!this.state.buttonClicked && (
-          <ImageButton
-            onClick={() =>
-              this.setState({
-                buttonText: 'Hide Images',
-                inspirationShowing: true,
-                buttonClicked: true
-              })
-            }
-          >
-            {this.state.buttonText}
-          </ImageButton>
-        )}
-        {this.state.buttonClicked && (
-          <ImageButton
-            onClick={() =>
-              this.setState({
-                buttonText: 'Show Images',
-                inspirationShowing: false,
-                buttonClicked: false
-              })
-            }
-          >
-            {this.state.buttonText}
-          </ImageButton>
-        )}
-
         <InspirationContainer>
-          {this.state.inspirationShowing && (
-            <InspirationPhotosContainer>
-              {this.state.photoUrls.map(url => (
-                <InspirationPhotoContainer key={generateId()}>
-                  <img
-                    className="inspiration-image"
-                    src={url}
-                    alt="inspiration"
-                  />
-                </InspirationPhotoContainer>
-              ))}
-            </InspirationPhotosContainer>
+          {!this.state.buttonClicked && (
+            <React.Fragment>
+              <ImageButton
+                onClick={() => {
+                  this.handleShowPhotosClick();
+                }}
+              >
+                {this.state.buttonText}
+              </ImageButton>
+              <InspirationPhotosContainer>
+                {this.state.photoUrls.map(url => (
+                  <InspirationPhotoContainer key={generateId()}>
+                    <img
+                      className="inspiration-image"
+                      src={url}
+                      alt="inspiration"
+                    />
+                  </InspirationPhotoContainer>
+                ))}
+              </InspirationPhotosContainer>
+            </React.Fragment>
+          )}
+          {this.state.buttonClicked && (
+            <ImageButton
+              onClick={() =>
+                this.setState({
+                  buttonText: 'Show Images',
+                  inspirationShowing: false,
+                  buttonClicked: false
+                })
+              }
+            >
+              {this.state.buttonText}
+            </ImageButton>
           )}
         </InspirationContainer>
       </InspirationSection>
