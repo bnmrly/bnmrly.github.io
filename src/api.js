@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiKey } from './config/index';
+import { apiKey } from './config/Config';
 
 const url = `https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${apiKey}&photoset_id=72157709722406487&user_id=7631378@N04&format=json&nojsoncallback=1`;
 

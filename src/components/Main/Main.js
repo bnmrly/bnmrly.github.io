@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { generate as generateId } from 'shortid';
-import InspirationSection from '../Inspiration/';
+import InspirationSection from '../Inspiration/Inspiration';
 
 // Styled Components
 const MainWrapper = styled.main`
