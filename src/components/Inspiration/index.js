@@ -17,11 +17,11 @@ const InspirationSection = styled.section`
 `;
 
 const InspirationContainer = styled.div`
-  overflow-y: scroll;
   margin-top: 3rem;
 `;
 
 const InspirationPhotosContainer = styled.div`
+  overflow-y: scroll;
   width: 100%;
   height: 500px;
   display: flex;
@@ -32,7 +32,7 @@ const InspirationPhotosContainer = styled.div`
   margin-right: auto;
 `;
 
-const InspirationPhotoContainer = styled.div`
+const PhotoContainer = styled.div`
   margin: ${props => props.theme.dimensions.inspirationContainerMargin};
 `;
 
@@ -62,12 +62,20 @@ class Inspiration extends Component {
   };
 
   async handleShowPhotosClick() {
-    const response = await api.getPhotos();
-    this.setState({
-      photoUrls: response,
-      buttonClicked: true,
-      buttonText: 'Hide Images'
-    });
+    const { buttonClicked } = this.state;
+    if (!buttonClicked) {
+      const response = await api.getPhotos();
+      this.setState({
+        photoUrls: response,
+        buttonClicked: true,
+        buttonText: 'Hide Images'
+      });
+    } else {
+      this.setState({
+        buttonClicked: false,
+        buttonText: 'Show Images'
+      });
+    }
   }
 
   render() {
@@ -81,40 +89,27 @@ class Inspiration extends Component {
         </p>
         <p>Please click below to view images of things that inspire me...</p>
         <InspirationContainer>
-          {!this.state.buttonClicked && (
+          <ImageButton
+            onClick={() => {
+              this.handleShowPhotosClick();
+            }}
+          >
+            {this.state.buttonText}
+          </ImageButton>
+          {this.state.buttonClicked && (
             <React.Fragment>
-              <ImageButton
-                onClick={() => {
-                  this.handleShowPhotosClick();
-                }}
-              >
-                {this.state.buttonText}
-              </ImageButton>
               <InspirationPhotosContainer>
                 {this.state.photoUrls.map(url => (
-                  <InspirationPhotoContainer key={generateId()}>
+                  <PhotoContainer key={generateId()}>
                     <img
                       className="inspiration-image"
                       src={url}
                       alt="inspiration"
                     />
-                  </InspirationPhotoContainer>
+                  </PhotoContainer>
                 ))}
               </InspirationPhotosContainer>
             </React.Fragment>
-          )}
-          {this.state.buttonClicked && (
-            <ImageButton
-              onClick={() =>
-                this.setState({
-                  buttonText: 'Show Images',
-                  inspirationShowing: false,
-                  buttonClicked: false
-                })
-              }
-            >
-              {this.state.buttonText}
-            </ImageButton>
           )}
         </InspirationContainer>
       </InspirationSection>
