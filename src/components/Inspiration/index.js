@@ -27,7 +27,8 @@ const InspirationPhotosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: ${props => props.theme.dimensions.inspirationContainerMargin};
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -54,8 +55,13 @@ const ImageButton = styled.button`
   }
 `;
 
+const LoadingMessage = styled.div`
+  margin-top: 2rem;
+`;
+
 class Inspiration extends Component {
   state = {
+    loading: false,
     photoUrls: [],
     buttonClicked: false,
     buttonText: 'Show Images'
@@ -64,8 +70,10 @@ class Inspiration extends Component {
   async handleShowPhotosClick() {
     const { buttonClicked } = this.state;
     if (!buttonClicked) {
+      this.setState({ loading: true });
       const response = await api.getPhotos();
       this.setState({
+        loading: false,
         photoUrls: response,
         buttonClicked: true,
         buttonText: 'Hide Images'
@@ -79,6 +87,7 @@ class Inspiration extends Component {
   }
 
   render() {
+    const { loading, photoUrls, buttonClicked, buttonText } = this.state;
     return (
       <InspirationSection>
         <h1>Inspiration</h1>
@@ -94,12 +103,13 @@ class Inspiration extends Component {
               this.handleShowPhotosClick();
             }}
           >
-            {this.state.buttonText}
+            {buttonText}
           </ImageButton>
-          {this.state.buttonClicked && (
+          {loading && <LoadingMessage>Loading...</LoadingMessage>}
+          {buttonClicked && (
             <React.Fragment>
               <InspirationPhotosContainer>
-                {this.state.photoUrls.map(url => (
+                {photoUrls.map(url => (
                   <PhotoContainer key={generateId()}>
                     <img
                       className="inspiration-image"
