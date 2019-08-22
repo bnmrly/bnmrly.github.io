@@ -34,6 +34,10 @@ const MainSkills = styled.section`
   }
 `;
 
+const MainSkillsListItem = styled.li`
+  margin-bottom: 1rem;
+`;
+
 const MainProjects = styled.section`
   border: 2px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
@@ -79,53 +83,44 @@ function Main(props) {
       <MainAbout>
         <h1>About</h1>
         <p>
-          {/* <img src="./street-support-project.png" alt="" /> */}I am a Front
-          End Developer and graduate from the{' '}
-          <a href="https://northcoders.com/">Northcoders</a> full stack coding
-          bootcamp.
+          I am a Manchester based Front End Developer and graduate from the{' '}
+          <a href="https://northcoders.com/">Northcoders</a> full-stack
+          JavaScript bootcamp.
         </p>
         <p>
-          I previously worked in an agile environment as Junior Front End
-          Developer for the Manchester homelessness start up
-          <a href="https://streetsupport.net/"> Street Support Network</a> as
-          well as working as a freelance front end developer, specialising in
-          custom WordPress sites.
+          I am currently working at the B2B Digital Marketing agency{' '}
+          <a href="https://www.dontbeshy.com">Don't be Shy</a>, Manchester.
         </p>
         <p>
-          I have a broad range of professional skills, having retrained in
-          development following a successful career in London's Fine Art
-          Industry, at the UK's largest commercial art gallery,{' '}
-          <a href="https://www.theguardian.com/artanddesign/2011/sep/26/white-cube-empire-record-gallery">
-            {' '}
-            White Cube{' '}
-          </a>
-          and for the Turner Prize winning artist,
-          <a
-            className="link accent"
-            href="https://www.theguardian.com/artanddesign/2017/apr/16/chris-ofili-trinidad-is-really-exciting-tapestry-the-caged-bird-sings-interview"
-          >
-            {' '}
-            Chris Ofili.
-          </a>
+          I have retrained in Front End Development, following a successful
+          career within London’s Contemporary Art industry, and am proficient in
+          JavaScript, HTML5, and CSS, as well as having additional exposure to a
+          range of front and back end technologies.
         </p>
       </MainAbout>
       <MainSkills>
         <h1>Technical skills</h1>
-        {/* remove the back slashes below */}
-        <p>\JavaScript: Node | React | Express\</p>
-        <p>
-          Front End skills: HTML5 | CSS3 including Grid and Flexbox | Sass and
-          Gulp | Responsive Design | Photoshop | BEM
-        </p>
-        <p>
-          Testing: TDD using Chai and Mocha | Cross-browser testing | User
-          Accepted Testing
-        </p>
-        <p>
-          Additional: Version control with Git | Pair programming | Deployment |
-          WordPress | Page speed optimisation | Database experience: PostgreSQL
-          & MongoDB
-        </p>
+        <ul>
+          <MainSkillsListItem>
+            React | ES6 | DOM manipulation
+          </MainSkillsListItem>
+          <MainSkillsListItem>
+            Sass | CSS3 | Flexbox | Grid | BEM | HTML5
+          </MainSkillsListItem>
+          <MainSkillsListItem>
+            Responsive design | Page speed optimisation
+          </MainSkillsListItem>
+          <MainSkillsListItem>
+            Cross-browser testing | UAT | TDD with Chai and Mocha
+          </MainSkillsListItem>
+          <MainSkillsListItem>
+            Node | Express | PHP | WordPress
+          </MainSkillsListItem>
+          <MainSkillsListItem>NPM | Yarn | Composer | Gulp</MainSkillsListItem>
+          <MainSkillsListItem>
+            Back End exposure: PostgreSQL | MongoDB | Umbraco | .NET
+          </MainSkillsListItem>
+        </ul>
       </MainSkills>
       <MainProjects>
         <h1>Projects</h1>
