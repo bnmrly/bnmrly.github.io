@@ -19,6 +19,13 @@ const AppWrapper = styled.div`
   margin-left: ${props => props.theme.dimensions.appWrapperMarginX};
   margin-bottom: ${props => props.theme.dimensions.appWrapperMarginY};
   margin-right: ${props => props.theme.dimensions.appWrapperMarginX};
+
+  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
+    margin-top: ${props => props.theme.dimensions.appWrapperMarginYLarge};
+    margin-left: ${props => props.theme.dimensions.appWrapperMarginXLarge};
+    margin-bottom: ${props => props.theme.dimensions.appWrapperMarginYLarge};
+    margin-right: ${props => props.theme.dimensions.appWrapperMarginXLarge};
+  }
 `;
 
 // Component

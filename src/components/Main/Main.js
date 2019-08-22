@@ -15,7 +15,11 @@ const MainAbout = styled.section`
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
-  width: 40%;
+  width: 100%;
+
+  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
+    width: 40%;
+  }
 
   h1 {
     margin-top: 0;
@@ -27,7 +31,11 @@ const MainSkills = styled.section`
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
   padding: ${props => props.theme.dimensions.defaultSectionPadding};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
-  width: 40%;
+  width: 100%;
+
+  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
+    width: 40%;
+  }
 
   h1 {
     margin-top: 0;
@@ -51,23 +59,45 @@ const MainProjects = styled.section`
 `;
 
 const ProjectsList = styled.ul`
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; */
+  justify-content: space-between;
 `;
 
 const ProjectsListItem = styled.li`
   border: 1px solid ${props => props.theme.color.border};
   /* border-radius: ${props => props.theme.dimensions.defaultBorderRadius}; */
-  width: 45%;
+  border-top-left-radius: ${props =>
+    props.theme.dimensions.defaultBorderRadius};
+  border-top-right-radius: ${props =>
+    props.theme.dimensions.defaultBorderRadius};
+ margin-bottom: ${props => props.theme.dimensions.defaultSectionPadding};
+
+  width: 100%;
+
+  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
+    width: 45%;
+  }
 `;
 
 const ProjectContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
-  bottom: 0px;
+  /* bottonm is -1px to achieve border-radius effect */
+  bottom: -1px;
   width: 100%;
-  height: 8em;
+  border-top: 1px solid ${props => props.theme.color.border};
+  border-bottom: 1px solid ${props => props.theme.color.border};
+  height: 13rem;
+
+  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
+    height: 8rem;
+  }
+`;
+
+const ProjectDescriptionContainer = styled.div`
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 // Component
@@ -134,25 +164,25 @@ function Main(props) {
                   backgroundPosition: `top`,
                   backgroundSize: `cover`,
                   height: `25rem`,
-                  position: `relative`,
-                  marginBottom: `4%`,
-                  width: `100%`
+                  position: `relative`
                 }}
               >
                 <ProjectContainer>
-                  <p className="project__description">
-                    <a
-                      className="project__link"
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.name}
-                    </a>
-                  </p>
-                  <p className="project__description--p">
-                    {project.description}
-                  </p>
+                  <ProjectDescriptionContainer>
+                    <p className="project__description">
+                      <a
+                        className="project__link"
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.name}
+                      </a>
+                    </p>
+                    <p className="project__description--p">
+                      {project.description}
+                    </p>
+                  </ProjectDescriptionContainer>
                 </ProjectContainer>
               </ProjectsListItem>
             );
