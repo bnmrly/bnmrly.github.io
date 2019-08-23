@@ -59,6 +59,8 @@ const LoadingMessage = styled.div`
   margin-top: 2rem;
 `;
 
+// Component
+
 class Inspiration extends Component {
   state = {
     loading: false,

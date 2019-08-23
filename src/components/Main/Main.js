@@ -104,6 +104,7 @@ const ProjectDescriptionContainer = styled.div`
 `;
 
 // Component
+
 function Main(props) {
   // convert props argument object to array
   const propsArray = [];
