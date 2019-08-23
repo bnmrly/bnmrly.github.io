@@ -66,12 +66,11 @@ const ProjectsList = styled.ul`
 
 const ProjectsListItem = styled.li`
   border: 1px solid ${props => props.theme.color.border};
-  /* border-radius: ${props => props.theme.dimensions.defaultBorderRadius}; */
   border-top-left-radius: ${props =>
     props.theme.dimensions.defaultBorderRadius};
   border-top-right-radius: ${props =>
     props.theme.dimensions.defaultBorderRadius};
- margin-bottom: ${props => props.theme.dimensions.defaultSectionPadding};
+  margin-bottom: ${props => props.theme.dimensions.defaultSectionPadding};
 
   width: 100%;
 
@@ -83,15 +82,19 @@ const ProjectsListItem = styled.li`
 const ProjectContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
-  /* bottonm is -1px to achieve border-radius effect */
+  /* bottom is -1px due to parent border-width */
   bottom: -1px;
   width: 100%;
   border-top: 1px solid ${props => props.theme.color.border};
   border-bottom: 1px solid ${props => props.theme.color.border};
-  height: 13rem;
+  height: 14rem;
+
+  @media screen and (min-width: ${props => props.theme.layout.mediumWidth}) {
+    height: 10rem;
+  }
 
   @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
-    height: 8rem;
+    height: 9rem;
   }
 `;
 
