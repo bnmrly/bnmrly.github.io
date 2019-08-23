@@ -9,8 +9,13 @@ const SiteFooter = styled.footer`
 
 const FooterList = styled.ul`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+
+  @media screen and (min-width: ${props => props.theme.layout.mediumWidth}) {
+    flex-direction: row;
+  }
 
   li:first-of-type {
     font-size: ${props => props.theme.dimensions.copyrightFontSize};
@@ -26,7 +31,7 @@ function Footer() {
   return (
     <SiteFooter>
       <FooterList>
-        <li>Copyright &copy; {getYear()} Ben Marley</li>
+        <li>Copyright &copy; {getYear()} Ben Marley. All rights reserved.</li>
         <li>
           <a href="mailto:hello@benmarley.co.uk">hello@benmarley.co.uk</a>
         </li>

@@ -20,7 +20,7 @@ const Theme = {
     defaultSectionPadding: '2rem',
     defaultSectionMarginY: '5rem',
     lastSectionMarginY: '2rem',
-    copyrightFontSize: '0.75rem',
+    copyrightFontSize: '0.7rem',
     buttonBorderRadius: '50px',
     buttonHeight: '2.5rem',
     inspirationContainerMargin: '0.25rem'
