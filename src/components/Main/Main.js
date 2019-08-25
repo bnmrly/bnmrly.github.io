@@ -117,7 +117,7 @@ function Main(props) {
       <MainAbout>
         <h1>About</h1>
         <p>
-          I am a Manchester based Front End Developer and graduate from the{' '}
+          I am a Front End Developer and graduate from the{' '}
           <a href="https://northcoders.com/">Northcoders</a> full-stack
           JavaScript bootcamp.
         </p>
