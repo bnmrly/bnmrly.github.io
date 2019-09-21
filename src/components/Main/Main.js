@@ -154,6 +154,10 @@ function Main(props) {
       </MainSkills>
       <MainProjects>
         <h1>Projects</h1>
+        <p>
+          Recent projects I've worked on have been under NDA but here are some
+          examples of my personal projects:
+        </p>
         <ProjectsList>
           {propsArray.map(project => {
             return (
