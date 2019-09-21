@@ -87,13 +87,9 @@ const ProjectContainer = styled.div`
   width: 100%;
   border-top: 1px solid ${props => props.theme.color.border};
   border-bottom: 1px solid ${props => props.theme.color.border};
-  height: 14rem;
+  height: 10rem;
 
   @media screen and (min-width: ${props => props.theme.layout.mediumWidth}) {
-    height: 10rem;
-  }
-
-  @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
     height: 9rem;
   }
 `;

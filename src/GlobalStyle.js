@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: 'Montserrat', sans-serif;
+  font-size: ${props => props.theme.dimensions.smallBodyFontSize};
   color: ${props => props.theme.color.primaryFontColor};
   background-color: ${props => props.theme.color.siteBackground};
 }
@@ -33,11 +34,20 @@ a:hover {
 ul {
   list-style-type: none;
   padding-left: 0;
-  line-height: 22px;
 }
 
-p {
-  line-height: 22px;
+ul, p {
+  line-height: ${props => props.theme.dimensions.smallLineHeight};
+}
+
+@media (min-width: 985px) {
+  ul, p {
+    line-height: ${props => props.theme.dimensions.largeLineHeight};
+    }
+
+    body {
+      font-size: ${props => props.theme.dimensions.largeBodyFontSize};
+    }
 }
 `;
 

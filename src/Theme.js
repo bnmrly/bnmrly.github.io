@@ -7,6 +7,10 @@ const Theme = {
     border: '#99ead4'
   },
   dimensions: {
+    smallBodyFontSize: '14px',
+    largeBodyFontSize: '16px',
+    smallLineHeight: '20px',
+    largeLineHeight: '22px',
     iconHeight: '40px',
     letterSpacingOverride: '0.2rem',
     appWrapperMarginY: '1rem',
