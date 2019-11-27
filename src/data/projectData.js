@@ -39,20 +39,6 @@ const projectData = [
     description:
       'Responsive, custom WordPress site for the London based artist, Jim Newcombe',
     imageUrl: './projectImages/jim-newcombe-project.png'
-  },
-  {
-    name: 'no-wave: Mouseover experiment',
-    link: 'http://benmarley.co.uk/no-wave/',
-    description:
-      'Dom Mouseover experiment built using CSS Grid and vanilla JavaScript.',
-    imageUrl: './projectImages/no-wave-project.png'
-  },
-  {
-    name: 'WordPress Photography Theme',
-    link: 'http://benmarleyphotography.co.uk',
-    description:
-      'Responsive WordPress site, built with the underscores starter theme',
-    imageUrl: './projectImages/bm-photo-project.png'
   }
 ];
 
