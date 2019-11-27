@@ -8,7 +8,7 @@ import { generate as generateId } from 'shortid';
 const InspirationSection = styled.section`
   border: 2px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
-  padding: ${props => props.theme.dimensions.defaultSectionPadding};
+  padding: ${props => props.theme.dimensions.defaultSectionSpacing};
   margin-bottom: ${props => props.theme.dimensions.lastSectionMarginY};
   width: 100%;
   h1 {
@@ -40,8 +40,8 @@ const PhotoContainer = styled.div`
 const ImageButton = styled.button`
   background-color: transparent;
   height: ${props => props.theme.dimensions.buttonHeight};
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: ${props => props.theme.dimensions.smallSpacing};
+  padding-left: ${props => props.theme.dimensions.smallSpacing};
   border: 1px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.buttonBorderRadius};
   cursor: pointer;

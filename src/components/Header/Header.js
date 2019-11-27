@@ -7,7 +7,7 @@ const Header = styled.header`
   background-color: ${props => props.theme.backgroundColor};
   display: flex;
   justify-content: space-between;
-  margin-bottom: ${props => props.theme.dimensions.defaultSectionPadding};
+  margin-bottom: ${props => props.theme.dimensions.defaultSectionSpacing};
 `;
 
 const HeaderAboutMeWrapper = styled.div`

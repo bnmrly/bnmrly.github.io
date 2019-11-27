@@ -13,7 +13,7 @@ const MainWrapper = styled.main`
 const MainAbout = styled.section`
   border: 2px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
-  padding: ${props => props.theme.dimensions.defaultSectionPadding};
+  padding: ${props => props.theme.dimensions.defaultSectionSpacing};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
   width: 100%;
 
@@ -29,7 +29,7 @@ const MainAbout = styled.section`
 const MainSkills = styled.section`
   border: 2px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
-  padding: ${props => props.theme.dimensions.defaultSectionPadding};
+  padding: ${props => props.theme.dimensions.defaultSectionSpacing};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
   width: 100%;
 
@@ -43,18 +43,25 @@ const MainSkills = styled.section`
 `;
 
 const MainSkillsListItem = styled.li`
-  margin-bottom: 1rem;
+  margin-bottom: ${props => props.theme.dimensions.smallSpacing};
 `;
 
 const MainProjects = styled.section`
+  width: 100%;
   border: 2px solid ${props => props.theme.color.border};
   border-radius: ${props => props.theme.dimensions.defaultBorderRadius};
-  padding: ${props => props.theme.dimensions.defaultSectionPadding};
+  padding-top: ${props => props.theme.dimensions.defaultSectionSpacing};
+  padding-right: ${props => props.theme.dimensions.defaultSectionSpacing};
+  padding-bottom: 0;
+  padding-left: ${props => props.theme.dimensions.defaultSectionSpacing};
   margin-bottom: ${props => props.theme.dimensions.defaultSectionMarginY};
-  width: 100%;
 
   h1 {
     margin-top: 0;
+  }
+
+  p {
+    padding-bottom: ${props => props.theme.dimensions.introParagraphPadding};
   }
 `;
 
@@ -62,6 +69,9 @@ const ProjectsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: -${props => props.theme.dimensions.smallSpacing};
+  margin-right: -${props => props.theme.dimensions.smallSpacing};
+  margin-bottom: 0;
 `;
 
 const ProjectsListItem = styled.li`
@@ -70,12 +80,15 @@ const ProjectsListItem = styled.li`
     props.theme.dimensions.defaultBorderRadius};
   border-top-right-radius: ${props =>
     props.theme.dimensions.defaultBorderRadius};
-  margin-bottom: ${props => props.theme.dimensions.defaultSectionPadding};
+  margin-bottom: ${props => props.theme.dimensions.defaultSectionSpacing};
+  margin-left: ${props => props.theme.dimensions.smallSpacing};
+  margin-right: ${props => props.theme.dimensions.smallSpacing};
 
   width: 100%;
 
   @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
     width: 45%;
+    flex-grow: 1;
   }
 `;
 
@@ -87,16 +100,24 @@ const ProjectContainer = styled.div`
   width: 100%;
   border-top: 1px solid ${props => props.theme.color.border};
   border-bottom: 1px solid ${props => props.theme.color.border};
-  height: 10rem;
+  height: 12rem;
+
+  @media screen and (min-width: ${props => props.theme.layout.smallWidth}) {
+    height: 8rem;
+  }
 
   @media screen and (min-width: ${props => props.theme.layout.mediumWidth}) {
-    height: 9rem;
+    height: 10rem;
   }
 `;
 
 const ProjectDescriptionContainer = styled.div`
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: ${props => props.theme.dimensions.smallSpacing};
+  padding-right: ${props => props.theme.dimensions.smallSpacing};
+
+  p {
+    padding-bottom: 0;
+  }
 `;
 
 // Component
@@ -115,12 +136,13 @@ function Main(props) {
         <p>
           I am a Manchester based Front End Developer and graduate from the{' '}
           <a href="https://northcoders.com/">Northcoders</a> full-stack
-          JavaScript bootcamp.
+          JavaScript bootcamp with experience of working in agency and start up
+          environments.
         </p>
-        <p>
+        {/* <p>
           I am currently working at the B2B Digital Marketing agency{' '}
           <a href="https://www.dontbeshy.com">Don't be Shy</a>, Manchester.
-        </p>
+        </p> */}
         <p>
           I have retrained in Front End Development, following a successful
           career within London’s Contemporary Art industry, and am proficient in
