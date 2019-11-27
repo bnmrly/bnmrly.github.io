@@ -15,16 +15,19 @@ import Footer from './components/Footer/Footer';
 // Styled Components
 
 const AppWrapper = styled.div`
-  margin-top: ${props => props.theme.dimensions.appWrapperMarginY};
-  margin-left: ${props => props.theme.dimensions.appWrapperMarginX};
-  margin-bottom: ${props => props.theme.dimensions.appWrapperMarginY};
-  margin-right: ${props => props.theme.dimensions.appWrapperMarginX};
+  padding-top: ${props => props.theme.dimensions.appWrapperSpacingY};
+  padding-right: ${props => props.theme.dimensions.appWrapperSpacingX};
+  padding-bottom: ${props => props.theme.dimensions.appWrapperSpacingY};
+  padding-left: ${props => props.theme.dimensions.appWrapperSpacingX};
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${props => props.theme.layout.xLargeWidth};
 
   @media screen and (min-width: ${props => props.theme.layout.largeWidth}) {
-    margin-top: ${props => props.theme.dimensions.appWrapperMarginYLarge};
-    margin-left: ${props => props.theme.dimensions.appWrapperMarginXLarge};
-    margin-bottom: ${props => props.theme.dimensions.appWrapperMarginYLarge};
-    margin-right: ${props => props.theme.dimensions.appWrapperMarginXLarge};
+    padding-top: ${props => props.theme.dimensions.appWrapperSpacingYLarge};
+    padding-right: ${props => props.theme.dimensions.appWrapperSpacingXLarge};
+    padding-bottom: ${props => props.theme.dimensions.appWrapperSpacingYLarge};
+    padding-left: ${props => props.theme.dimensions.appWrapperSpacingXLarge};
   }
 `;
 
