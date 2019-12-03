@@ -1,5 +1,12 @@
 const projectData = [
   {
+    name: 'React Hooks: Last FM Music Search',
+    link: 'https://react-music-search.netlify.com/',
+    description:
+      "React app that calls Last FM's API and allows users to search for album data.",
+    imageUrl: './projectImages/react-music-search.png'
+  },
+  {
     name: 'News Today: Front End',
     link: 'https://news-today-ben-marley.herokuapp.com/',
     description:
