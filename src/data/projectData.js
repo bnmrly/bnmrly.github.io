@@ -1,5 +1,11 @@
 const projectData = [
   {
+    name: 'React Hooks: Menu Component',
+    link: 'https://react-menu-component.netlify.com/',
+    description: 'Menu component built with React Hooks and Reach Router.',
+    imageUrl: './projectImages/react-music-component.png'
+  },
+  {
     name: 'React Hooks: Last FM Music Search',
     link: 'https://react-music-search.netlify.com/',
     description:
